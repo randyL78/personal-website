@@ -1,0 +1,13 @@
+version: "3.3"
+
+services:
+  redis:
+    image: "redis"
+
+  db:
+    image: "percona"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3100:3306"
