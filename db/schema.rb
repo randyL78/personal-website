@@ -10,6 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_08_21_015540) do
+
+  create_table "educations", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.string "major"
+    t.string "minor"
+    t.decimal "gpa", precision: 3, scale: 2
+    t.date "start_date"
+    t.date "end_date"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
 end
