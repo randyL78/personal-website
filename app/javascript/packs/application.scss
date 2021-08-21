@@ -2,3 +2,23 @@
 // @import "tailwindcss/components";
 // @import "tailwindcss/utilities";
 @import "bootstrap";
+
+.top-35 {
+  top: 35% !important;
+}
+
+.fs-0 {
+  font-size: calc(2.0rem + 1.5vw) !important;
+  @media (min-width: 1200px) {
+    font-size: 3.5rem !important;
+  }
+}
+
+.bg-theme-dark {
+  background-color: #172d85 !important;
+}
+
+.landing {
+  background: url('~images/circuit-board-background.png') no-repeat center fixed;
+  background-size: cover;
+}
