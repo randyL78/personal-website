@@ -1,32 +1,52 @@
- <%# landing backgroung %>
+<%# landing background %>
 <div class="top-0 bottom-0 position-absolute end-0 start-0 landing">
   <div class="top-0 bottom-0 opacity-50 position-absolute end-0 start-0 bg-theme-dark"></div>
 </div>
 
-<div class="container position-relative">
+<%# navigation %>
+<div class="p-4 nav-container" >
+  <nav class="text-white flex-column nav nav-pills">
+    <a class="text-white nav-link" href="#">Top</a>
+    <hr>
+    <a class="text-white nav-link active" href="#">Profile</a>
+    <a class="text-white nav-link" href="#">Experience</a>
+    <a class="text-white nav-link" href="#">Education</a>
+    <a class="text-white nav-link" href="#">Skills</a>
+  </nav>
+</div>
+
+<div class="position-relative">
   <div class="vh-100">
-    <%# overlay  for title %>
+    <%# overlay for title %>
     <div class="text-center text-white position-absolute top-35 start-50 translate-middle">
       <h1 class="fs-0 text">Randy Layne</h1>
       <hr>
-      <h2 class="fs-4 text fw-light">Ruby on Rails Developer</h2>
+      <h2 class="fs-4 text fw-light">Software Developer</h2>
     </div>
   </div>
 </div>
-<div class="container position-relative">
-  <div>
-    <h2>Profile</h2>
-  </div>
-  <div>
-    <h2>Experience</h2>
-  </div>
-  <div>
-    <h2>Education</h2>
-  </div>
-  <div>
-    <h2>Skills</h2>
-  </div>
-  <div>
-    <h2>Contact</h2>
+<div class="p-5">
+  <div class="container position-relative">
+    <div class="text-center">
+      <h2 class="text-theme-dark fs-0 fw-light">Profile</h2>
+      <p class="text-black-50">
+        I'm a Ruby on Rails Developer<br>
+        ...but with interests in many other languges
+      </p>
+      <hr class="mt-5">
+    </div>
+    <div class="mt-5 row">
+      <div class="col-md-4">
+        <h3  class="text-center text-theme-dark fw-light">About me</h3>
+      </div>
+      <div class="col-md-4">
+        <div class="mx-auto avatar position-relative">
+          <%= image_tag('rdl_profile_2021.jpg', class: "avatar-img top-50 start-50 translate-middle position-absolute", size: "200", alt: "Profile photo of that handsome devil Randy Layne") %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h3 class="text-center text-theme-dark fw-light">Details</h3>
+      </div>
+    </div>
   </div>
 </div>
