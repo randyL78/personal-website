@@ -4,49 +4,68 @@
 </div>
 
 <%# navigation %>
-<div class="p-4 nav-container" >
-  <nav class="text-white flex-column nav nav-pills">
-    <a class="text-white nav-link" href="#">Top</a>
-    <hr>
-    <a class="text-white nav-link active" href="#">Profile</a>
-    <a class="text-white nav-link" href="#">Experience</a>
+<div class="p-4 nav-container d-none d-md-block" >
+  <nav class="text-white flex-column nav nav-pills" id="navigation">
+    <a class="text-white nav-link" href="#top" data-turbolinks="false">Top</a>
+    <a class="text-white nav-link" href="#profile" data-turbolinks="false">Profile</a>
+    <a class="text-white nav-link" href="#experience" data-turbolinks="false">Experience</a>
     <a class="text-white nav-link" href="#">Education</a>
     <a class="text-white nav-link" href="#">Skills</a>
   </nav>
 </div>
 
-<div class="position-relative">
-  <div class="vh-100">
-    <%# overlay for title %>
-    <div class="text-center text-white position-absolute top-35 start-50 translate-middle">
-      <h1 class="fs-0 text">Randy Layne</h1>
-      <hr>
-      <h2 class="fs-4 text fw-light">Software Developer</h2>
+<main class="position-relative" data-bs-spy="scroll" data-bs-target="#navigation" data-bs-offset="0" tabindex="0">
+  <div class="position-relative" id=top>
+    <div class="vh-100">
+      <%# overlay for title %>
+      <div class="text-center text-white position-absolute top-35 start-50 translate-middle">
+        <h1 class="fs-0 text">Randy Layne</h1>
+        <hr>
+        <h2 class="fs-4 text fw-light">Software Developer</h2>
+      </div>
     </div>
   </div>
-</div>
-<div class="p-5">
-  <div class="container position-relative">
-    <div class="text-center">
-      <h2 class="text-theme-dark fs-0 fw-light">Profile</h2>
-      <p class="text-black-50">
-        I'm a Ruby on Rails Developer<br>
-        ...but with interests in many other languges
-      </p>
-      <hr class="mt-5">
-    </div>
-    <div class="mt-5 row">
-      <div class="col-md-4">
-        <h3  class="text-center text-theme-dark fw-light">About me</h3>
+  <div class="p-5 bg-white nm-cc-white nm-box-theme-dark">
+    <div class="container position-relative" id="profile">
+      <div class="text-center">
+        <h2 class="text-theme-dark fs-0 fw-light">Profile</h2>
+        <p class="text-black-50">
+          I'm a Ruby on Rails Developer<br>
+          ...but with interests in many other languges
+        </p>
+        <hr class="mt-5">
       </div>
-      <div class="col-md-4">
-        <div class="mx-auto avatar position-relative">
-          <%= image_tag('rdl_profile_2021.jpg', class: "avatar-img top-50 start-50 translate-middle position-absolute", size: "200", alt: "Profile photo of that handsome devil Randy Layne") %>
+      <div class="px-md-5 m-md-5 row">
+        <div class="col-md-4">
+          <h3  class="text-center text-theme-dark fw-light">About me</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+            vulputate, neque eu malesuada pharetra, dolor lacus sollicitudin est,
+            non imperdiet mauris mi vel justo. Vivamus ornare elit non ligula
+            efficitur, id convallis tortor lacinia. Sed a erat condimentum velit
+            facilisis ullamcorper venenatis id leo. Nullam lobortis dolor diam,
+            eget hendrerit turpis accumsan sollicitudin.</p>
+        </div>
+        <div class="col-md-4">
+          <div class="mx-auto avatar position-relative">
+            <%= image_tag('rdl_profile_2021.jpg', class: "avatar-img top-50 start-50 translate-middle position-absolute", alt: "Profile photo of that handsome devil Randy Layne") %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h3 class="text-center text-theme-dark fw-light">Details</h3>
         </div>
       </div>
-      <div class="col-md-4">
-        <h3 class="text-center text-theme-dark fw-light">Details</h3>
+    </div>
+  </div>
+  <div class="p-5 mt-5">
+    <div class="container position-relative" id="experience">
+      <div class="text-center">
+        <h2 class="text-theme-dark fs-0 fw-light">Experience</h2>
+        <q class="text-black-50">
+          A favorite quote
+        </q>
+        <hr class="mt-5">
       </div>
     </div>
   </div>
-</div>
+</main>
