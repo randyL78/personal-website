@@ -10,7 +10,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="position-relative">
+  <body class="position-relative" data-bs-spy="scroll" data-bs-target="#navigation" data-bs-offset="0" tabindex="0">
     <%= yield %>
   </body>
 </html>

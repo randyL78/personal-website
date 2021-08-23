@@ -4,14 +4,16 @@
 @import "bootstrap";
 
 $theme-colors: (
-  "dark": #172d85,
-  "medium": #777,
-  "light": "#ddd"
+  "primary"  : #172d85,
+  "neutral": #CDD7D6,
+  "comp-1": #B3A394,
+  "comp-2": #F87060,
+  "light" : #FDFDFD
 );
 
 @keyframes slide-left {
-  0%  { right: -300px }
-  100%  { right: 25px }
+  0%  { right: -200px }
+  100%  { right: 50px }
 }
 
 .top-35 {
@@ -25,53 +27,39 @@ $theme-colors: (
   }
 }
 
-.text-theme-dark {
-  color: map-get($theme-colors, "dark") !important;
-}
+@each $key, $color in $theme-colors {
+  .bg-theme-#{$key} {
+    background-color: $color !important;
+  }
 
-.bg-theme-dark {
-  background-color: map-get($theme-colors, "dark") !important;
+  .text-theme-#{$key} {
+    color: $color !important
+  }
+
+  .nm-cc-theme-#{$key} {
+    background: linear-gradient(145deg, darken($color, 10%), lighten($color, 10%)) !important;
+  }
+
+  .nm-box-theme-#{key} {
+    box-shadow:  20px 20px 60px darken($color, 20%),
+    -20px -20px 60px lighten($color, 20%) !important;
+  }
 }
 
 .avatar {
-  height: 175px;
-  width: 175px;
+  height: 220px;
+  width: 220px;
   border-radius: 50%;
   background: linear-gradient(145deg, #ffffff, #e6e6e6);
   box-shadow:  6px 6px 12px #cccccc,
                -6px -6px 12px #ffffff;
-  @media (min-width: 1200px) {
-    height: 220px;
-    width: 220px;
-  }
+
   &-img {
     border-radius: 50%;
     margin: auto;
-    width: 175px;
-    height: 175px;
-    @media (min-width: 1200px) {
-      height: 200px;
-      width: 200px;
-    }
+    width: 200px;
+    height: 200px;
   }
-}
-
-.nm-cc-theme-dark {
-  background: linear-gradient(145deg, #152978, #19308e);
-}
-
-.nm-box-theme-dark {
-  box-shadow:  20px 20px 60px #142671,
-  -20px -20px 60px #1a3499;
-}
-
-.nm-cc-white {
-  background: linear-gradient(145deg, #e6e6e6, #ffffff);
-}
-
-.nm-box-white {
-  box-shadow:  20px 20px 60px #d9d9d9,
-             -20px -20px 60px #ffffff;
 }
 
 .landing {
@@ -84,9 +72,8 @@ $theme-colors: (
   animation: slide-left 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   position: fixed;
   top: 50px;
-  right: 25px;
+  right: 50px;
   border-radius: 25px;
-  background: linear-gradient(145deg, #152978, #19308e);
   box-shadow:  6px 6px 12px #12246a,
               -6px -6px 12px #1c36a0;
 }
