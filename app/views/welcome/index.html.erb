@@ -4,7 +4,7 @@
 </div>
 
 <%# navigation %>
-<div class="p-2 rounded nav-container d-none d-md-block nm-cc-theme-primary" >
+<div class="p-2 rounded nav-container d-none d-md-block nm-cc-theme-primary nm-box-theme-primary" >
   <nav class="text-white flex-column nav nav-pills" id="navigation">
     <a class="text-white nav-link" href="#top" data-turbolinks="false">Top</a>
     <a class="text-white nav-link" href="#profile" data-turbolinks="false">Profile</a>
@@ -28,7 +28,7 @@
   </div>
 
   <%# Profile Section %>
-  <div class="p-5 nm-cc-theme-light nm-box-theme-light">
+  <div class="p-5 nm-cc-theme-light nm-box-theme-primary">
     <div class="container position-relative" id="profile">
       <div class="text-center">
         <h2 class="text-theme-primary fs-0 fw-light">Profile</h2>
@@ -42,7 +42,7 @@
           <%= tag.p @landing_info.profile.about_me, class: "text-black-75" %>
         </div>
         <div class="mb-3 col-lg-4">
-          <div class="mx-auto avatar position-relative">
+          <div class="mx-auto avatar position-relative nm-box-theme-light nm-cc-theme-light">
             <%= image_tag('rdl_profile_2021.jpg', class: "avatar-img top-50 start-50 translate-middle position-absolute", alt: "Profile photo of that handsome devil Randy Layne") %>
           </div>
         </div>
@@ -59,7 +59,7 @@
   </div>
 
   <%# Experience Section %>
-  <div class="p-5 mt-5 nm-cc-theme-neutral">
+  <div class="p-5 mt-5 nm-cc-theme-neutral nm-box-theme-primary">
     <div class="container position-relative" id="experience">
       <div class="text-center">
         <h2 class="text-theme-primary fs-0 fw-light">Experience</h2>
@@ -67,6 +67,9 @@
           A favorite quote
         </q>
         <hr class="mt-5">
+      </div>
+      <div>
+        <%= render partial: 'experience', collection: @landing_info.experience %>
       </div>
     </div>
   </div>
@@ -81,11 +84,14 @@
         </q>
         <hr class="mt-5">
       </div>
+      <div>
+        <%= render partial: 'education', collection: @landing_info.education %>
+      </div>
     </div>
   </div>
 
   <%# Skills Section %>
-  <div class="p-5 mt-5 nm-cc-theme-neutral">
+  <div class="p-5 mt-5 nm-cc-theme-neutral nm-box-theme-primary">
     <div class="container position-relative" id="skills">
       <div class="text-center">
         <h2 class="text-theme-primary fs-0 fw-light">Skills</h2>
@@ -93,6 +99,20 @@
           A favorite quote
         </q>
         <hr class="mt-5">
+      </div>
+      <div>
+        <h4>Languages</h4>
+        <ul class="unstyled-list">
+          <%= render partial: 'skills', collection: @landing_info.languages %>
+        </ul>
+        <h4>Development Tools</h4>
+        <ul class="unstyled-list">
+          <%= render partial: 'skills', collection: @landing_info.development_tools %>
+        </ul>
+        <h4>Productivity</h4>
+        <ul class="unstyled-list">
+          <%= render partial: 'skills', collection: @landing_info.productivity %>
+        </ul>
       </div>
     </div>
   </div>

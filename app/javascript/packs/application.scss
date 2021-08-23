@@ -40,9 +40,9 @@ $theme-colors: (
     background: linear-gradient(145deg, darken($color, 10%), lighten($color, 10%)) !important;
   }
 
-  .nm-box-theme-#{key} {
-    box-shadow:  20px 20px 60px darken($color, 20%),
-    -20px -20px 60px lighten($color, 20%) !important;
+  .nm-box-theme-#{$key} {
+    box-shadow:  12px 12px 28px darken($color, 20%),
+    -12px -12px 28px lighten($color, 20%) !important;
   }
 }
 
@@ -50,9 +50,6 @@ $theme-colors: (
   height: 220px;
   width: 220px;
   border-radius: 50%;
-  background: linear-gradient(145deg, #ffffff, #e6e6e6);
-  box-shadow:  6px 6px 12px #cccccc,
-               -6px -6px 12px #ffffff;
 
   &-img {
     border-radius: 50%;
@@ -74,6 +71,4 @@ $theme-colors: (
   top: 50px;
   right: 50px;
   border-radius: 25px;
-  box-shadow:  6px 6px 12px #12246a,
-              -6px -6px 12px #1c36a0;
 }
