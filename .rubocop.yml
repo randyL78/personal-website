@@ -8,3 +8,6 @@ Style/FrozenStringLiteralComment:
 
 Style/Documentation:
   Enabled: false
+
+Style/AccessModifierDeclarations:
+  Enabled: false
