@@ -5,7 +5,7 @@ services:
     image: "redis"
 
   db:
-    image: "percona"
+    image: "mariadb"
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root

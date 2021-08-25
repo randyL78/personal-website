@@ -17,8 +17,19 @@ module Admin
       render :new
     end
 
+    def update
+      (redirect_to admin_profile_path(@profile) and return) if @profile = Profile.update(profile_params)
+
+      render :edit
+    end
+
     def index
       @profiles = @current_user.profiles
+    end
+
+    def destroy
+      Profile.find(params[:id]).destroy!
+      redirect_to admin_profiles_path
     end
 
     private def profile_params

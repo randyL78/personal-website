@@ -1,4 +1,4 @@
-<%= form_with model: @profile, url: admin_profiles_path do |f| %>
+<%= form_with model: @profile, url: @profile.persisted? ? admin_profile_path(@profile) : admin_profiles_path do |f| %>
     <div class="mb-3">
       <%= f.label :name, "Name", class: "form-label" %>
       <%= f.text_field :name, class: "form-control", readonly: is_readonly %>
@@ -37,7 +37,7 @@
         <%= link_to "Edit", edit_admin_profile_path(@profile), class: "btn btn-primary" %>
       <% else %>
         <%= f.submit "Save", class: "btn btn-primary" %>
-        <%= link_to "Cancel", admin_profiles_path, class: "btn btn-secondary" %>
+        <%= link_to "Cancel", @profile.persisted? ? admin_profile_path(@profile) : admin_profiles_path, class: "btn btn-secondary" %>
       <% end %>
     </div>
   <% end %>
