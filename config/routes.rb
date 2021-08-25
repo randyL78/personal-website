@@ -4,7 +4,13 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'dashboard#index'
 
-    resources :profile
-    resources :login, only: ['new','create']
+    controller :sessions do
+      get 'login' => :new
+      post 'login' => :create
+      delete 'logout' => :destroy
+    end
+
+    resources :users, only: [:new, :create, :edit, :update, :show, :destroy]
+    resources :profiles
   end
 end

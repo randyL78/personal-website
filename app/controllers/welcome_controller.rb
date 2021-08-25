@@ -1,11 +1,13 @@
 class WelcomeController < ApplicationController
   def index
+    user = User.first
     @landing_info = OpenStruct.new(
+      name: user.name,
+      tag_line: user.title,
       profile: OpenStruct.new(
         quote: 'Good software, like wine, takes time.',
         quote_author: 'Joel Spolsky',
         name: 'Randy Layne',
-        tag_line: 'Software Developer',
         about_me: "I'm a Ruby on Rails developer with an insatiable thirst for
                     learning more about software development, including other
                     languages.",

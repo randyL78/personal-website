@@ -1,0 +1,43 @@
+<%= form_with model: @profile, url: admin_profiles_path do |f| %>
+    <div class="mb-3">
+      <%= f.label :name, "Name", class: "form-label" %>
+      <%= f.text_field :name, class: "form-control", readonly: is_readonly %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :location, "Location", class: "form-label" %>
+      <%= f.text_field :location, class: "form-control", readonly: is_readonly %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :about_me, "About", class: "form-label" %>
+      <%= f.text_area :about_me, class: "form-control", readonly: is_readonly %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :age, "Age", class: "form-label" %>
+      <%= f.text_field :age, class: "form-control", readonly: is_readonly %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :quote, "Quote", class: "form-label" %>
+      <%= f.text_field :quote, class: "form-control", readonly: is_readonly %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :quote_author, "Quote Arthor", class: "form-label" %>
+      <%= f.text_field :quote_author, class: "form-control", readonly: is_readonly %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :is_published, "Published?", class: "form-check-label" %>
+      <%= f.check_box :is_published, class: "form-check-input", readonly: is_readonly %>
+    </div>
+
+    <div class="justify-content-between d-flex">
+      <% if is_readonly %>
+        <%= link_to "Edit", edit_admin_profile_path(@profile), class: "btn btn-primary" %>
+      <% else %>
+        <%= f.submit "Save", class: "btn btn-primary" %>
+        <%= link_to "Cancel", admin_profiles_path, class: "btn btn-secondary" %>
+      <% end %>
+    </div>
+  <% end %>

@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
   private def current_user
-    @current_user ||= session[:current_user_id]
+    @current_user ||= User.find_by(id: session[:current_user_id])
   end
 
   private def logged_in?
@@ -10,6 +10,6 @@ class AdminController < ApplicationController
   private def authorize
     return if current_user
 
-    redirect_to new_admin_login_url, notice: 'Please log in'
+    redirect_to admin_login_url, notice: 'Please log in'
   end
 end

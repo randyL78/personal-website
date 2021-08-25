@@ -1,6 +1,6 @@
 <div class="container p-4 mt-5 rounded form bg-theme-neutral">
-  <h1 class="mb-4 text-center">Login to Admin</h1>
-  <%= form_with url: admin_login_index_path, method: :post do |f| %>
+  <%= form_with url: admin_login_path, method: :post do |f| %>
+    <h1 class="mb-4 text-center">Login to Admin</h1>
     <div class="mb-3 row">
       <%= f.label :username, 'Username:', class: "col-sm-2 col-form-label" %>
       <div class="col-sm-10">

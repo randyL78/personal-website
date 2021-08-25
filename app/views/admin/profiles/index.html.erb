@@ -1,0 +1,12 @@
+<div class="container p-4 mt-5 rounded form bg-theme-neutral">
+  <h1 class="mb-4 text-center">Profiles</h1>
+  <% if @profiles.present? %>
+    <% @profiles.each do |profile| %>
+      <p><%= profile.name %></p>
+    <% end %>
+  <% else %>
+    <p>There are currently no profiles for this user</p>
+  <% end %>
+  <%= link_to "New", new_admin_profile_path, class: "btn btn-primary" %>
+
+</div>
