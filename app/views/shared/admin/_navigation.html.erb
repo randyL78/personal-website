@@ -1,0 +1,37 @@
+<div class="bg-theme-primary">
+  <nav class="container navbar navbar-expand-lg navbar-dark bg-theme-primary">
+    <div class="container-fluid">
+      <%= link_to 'RL Admin', admin_root_path, class: "navbar-brand" %>
+      <% if @current_user %>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="mb-2 navbar-nav me-auto mb-lg-0">
+            <li class="nav-item">
+              <%= link_to 'Profile',
+                  admin_profiles_path,
+                  class: "nav-link #{controller_name == "profiles" ? "active" : nil}"
+              %>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Education</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Experience</a>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Account', admin_user_path(@current_user), class: "nav-link #{controller_name == "users" ? "active" : nil}" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Landing', root_path, class: "nav-link" %>
+            </li>
+          </ul>
+
+            <%= form_with url: admin_logout_path, method: :delete do |f| %>
+              <%= f.submit "Logout", class: "btn btn-outline-light" %>
+            <% end %>
+        </div>
+      <% end %>
+    </div>
+  </nav>
+</div>

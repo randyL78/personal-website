@@ -1,0 +1,93 @@
+// @import "tailwindcss/base";
+// @import "tailwindcss/components";
+// @import "tailwindcss/utilities";
+@import "bootstrap";
+
+$theme-colors: (
+  "primary"  : #172d85,
+  "neutral": #CDD7D6,
+  "comp-1": #B3A394,
+  "comp-2": #F87060,
+  "light" : #FDFDFD
+);
+
+@keyframes slide-left {
+  0%  { right: -200px }
+  100%  { right: 50px }
+}
+
+@keyframes slide-right {
+  0%  { left: -200px }
+  100%  { left: 50px }
+}
+
+.top-35 {
+  top: 35% !important;
+}
+
+.fs-0 {
+  font-size: calc(2.5rem + 1.5vw) !important;
+  @media (min-width: 1200px) {
+    font-size: 4.0rem !important;
+  }
+}
+
+@each $key, $color in $theme-colors {
+  .bg-theme-#{$key} {
+    background-color: $color !important;
+  }
+
+  .text-theme-#{$key} {
+    color: $color !important
+  }
+
+  .nm-cc-theme-#{$key} {
+    background: linear-gradient(145deg, darken($color, 10%), lighten($color, 10%)) !important;
+  }
+
+  .nm-box-theme-#{$key} {
+    box-shadow:  12px 12px 28px darken($color, 20%),
+    -12px -12px 28px lighten($color, 20%) !important;
+  }
+
+  .nm-box-s-theme-#{$key} {
+    box-shadow:  6px 6px 12px darken($color, 20%),
+    -6px -6px 12px lighten($color, 20%) !important;
+  }
+}
+
+.avatar {
+  height: 220px;
+  width: 220px;
+  border-radius: 50%;
+
+  &-img {
+    border-radius: 50%;
+    margin: auto;
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.landing {
+  background: url('~images/circuit-board-background.png') no-repeat center fixed;
+  background-size: cover;
+}
+
+.nav-container {
+  z-index: 100;
+  animation: slide-left 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  border-radius: 25px;
+}
+
+.admin-container {
+  z-index: 100;
+  animation: slide-right 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+  border-radius: 25px;
+}

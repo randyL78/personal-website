@@ -1,0 +1,123 @@
+<%# landing background %>
+<div class="top-0 bottom-0 position-absolute end-0 start-0 landing">
+  <div class="top-0 bottom-0 opacity-50 position-absolute end-0 start-0 bg-theme-primary"></div>
+</div>
+
+<%# navigation %>
+<%= render partial: 'shared/navigation' %>
+
+<main class="position-relative">
+  <div class="position-relative" id=top>
+    <div class="vh-100">
+      <%# overlay for title %>
+      <div class="text-center text-white position-absolute top-35 start-50 translate-middle">
+        <h1 class="fs-0 text"><%= @landing_info.name %></h1>
+        <hr>
+        <h2 class="fs-4 text fw-light"><%= @landing_info.tag_line %></h2>
+      </div>
+    </div>
+  </div>
+
+  <%# Profile Section %>
+  <div class="p-5 nm-cc-theme-light nm-box-theme-primary">
+    <div class="container position-relative" id="profile">
+      <div class="text-center">
+        <h2 class="text-theme-primary fs-0 fw-light">Profile</h2>
+        <q class="text-black-75 fst-italic fs-5"><%= @landing_info.profile.quote %></q>
+        <p class="text-black-75" >~<%= @landing_info.profile.quote_author %></p>
+        <hr class="mt-5">
+      </div>
+      <div class="px-md-5 m-md-5 row">
+        <div class="mb-3 col-lg-4">
+          <h3  class="text-center text-theme-primary fw-light">About me</h3>
+          <%= tag.p @landing_info.profile.about_me, class: "text-black-75" %>
+        </div>
+        <div class="mb-3 col-lg-4">
+          <div class="mx-auto avatar position-relative nm-box-theme-light nm-cc-theme-light">
+            <%= image_tag('rdl_profile_2021.jpg', class: "avatar-img top-50 start-50 translate-middle position-absolute", alt: "Profile photo of that handsome devil Randy Layne") %>
+          </div>
+        </div>
+        <div class="mb-3 col-lg-4">
+          <h3 class="text-center text-theme-primary fw-light">Details</h3>
+          <ul class="list-unstyled text-black-75">
+            <li><span class="fw-bold">Name: </span><p><%= @landing_info.profile.name %></p></li>
+            <li><span class="fw-bold">Age: </span><p><%= @landing_info.profile.age %></p></li>
+            <li><span class="fw-bold">Location: </span><p><%= @landing_info.profile.location %></p></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%# Experience Section %>
+  <div class="p-5 mt-5 nm-cc-theme-neutral nm-box-theme-primary">
+    <div class="container position-relative" id="experience">
+      <div class="text-center">
+        <h2 class="text-theme-primary fs-0 fw-light">Experience</h2>
+        <q class="text-black-50">
+          A favorite quote
+        </q>
+        <hr class="mt-5">
+      </div>
+      <div>
+        <%= render partial: 'experience', collection: @landing_info.experience %>
+      </div>
+    </div>
+  </div>
+
+  <%# Education Section %>
+  <div class="p-5 mt-5 nm-cc-theme-light nm-box-theme-primary">
+    <div class="container position-relative" id="education">
+      <div class="text-center">
+        <h2 class="text-theme-primary fs-0 fw-light">Education</h2>
+        <q class="text-black-50">
+          A favorite quote
+        </q>
+        <hr class="mt-5">
+      </div>
+      <div>
+        <%= render partial: 'education', collection: @landing_info.education %>
+      </div>
+    </div>
+  </div>
+
+  <%# Skills Section %>
+  <div class="p-5 mt-5 nm-cc-theme-neutral nm-box-theme-primary">
+    <div class="container position-relative" id="skills">
+      <div class="text-center">
+        <h2 class="text-theme-primary fs-0 fw-light">Skills</h2>
+        <q class="text-black-50">
+          A favorite quote
+        </q>
+        <hr class="mt-5">
+      </div>
+      <div>
+        <h4>Languages</h4>
+        <ul class="unstyled-list">
+          <%= render partial: 'skills', collection: @landing_info.languages %>
+        </ul>
+        <h4>Development Tools</h4>
+        <ul class="unstyled-list">
+          <%= render partial: 'skills', collection: @landing_info.development_tools %>
+        </ul>
+        <h4>Productivity</h4>
+        <ul class="unstyled-list">
+          <%= render partial: 'skills', collection: @landing_info.productivity %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <%# Projects Section %>
+  <div class="p-5 mt-5 nm-cc-theme-light nm-box-theme-primary">
+    <div class="container position-relative" id="projects">
+      <div class="text-center">
+        <h2 class="text-theme-primary fs-0 fw-light">Projects</h2>
+        <q class="text-black-50">
+          A favorite quote
+        </q>
+        <hr class="mt-5">
+      </div>
+    </div>
+  </div>
+</main>

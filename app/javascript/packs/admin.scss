@@ -1,0 +1,19 @@
+@import "bootstrap";
+
+$theme-colors: (
+  "primary"  : #172d85,
+  "neutral": #CDD7D6,
+  "comp-1": #B3A394,
+  "comp-2": #F87060,
+  "light" : #FDFDFD
+);
+
+@each $key, $color in $theme-colors {
+  .bg-theme-#{$key} {
+    background-color: $color !important;
+  }
+}
+
+.form {
+  max-width: 800px;
+}

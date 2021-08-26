@@ -1,0 +1,35 @@
+<div class="container p-4 mt-5 rounded form bg-theme-neutral">
+  <h1 class="mb-4 text-center">Profiles</h1>
+  <% if @profiles.present? %>
+    <table class="table border-primary table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Published?</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @profiles.each do |profile| %>
+          <td scope="col"><%= profile.id %></td>
+          <td scope="col"><%= profile.name %></td>
+          <td scope="col"><input class="form-check-input" type="checkbox" <%= profile.published? ? "checked" : nil %> disabled></td>
+          <td scope="col">
+            <%= link_to 'View', admin_profile_path(profile), class: "btn btn-primary" %>
+            <%= link_to 'Delete',
+              admin_profile_path(profile),
+              class: "btn btn-danger",
+              method: :delete,
+              data: { confirm: "This will permanately remove the profile. Are you sure?" }
+            %>
+          </td>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>There are currently no profiles for this user</p>
+  <% end %>
+  <%= link_to "New", new_admin_profile_path, class: "btn btn-primary" %>
+
+</div>
