@@ -53,6 +53,8 @@ group :development do
   gem 'rails_best_practices', '~> 1.21'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  # Use passenger as the development server to simulate production as much as possible
+  gem "passenger", ">= 5.0.25", require: "phusion_passenger/rack_handler"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
