@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :profiles, dependent: :destroy
+  has_many :experience_groups, through: :profiles
 
   def current_profile
     profiles.published.first

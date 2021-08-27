@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   namespace :admin do
-    root 'dashboard#index'
+    root 'profiles#index'
 
     controller :sessions do
       get 'login' => :new
@@ -12,5 +12,6 @@ Rails.application.routes.draw do
 
     resources :users, only: [:new, :create, :edit, :update, :show, :destroy]
     resources :profiles
+    resources :experience_groups
   end
 end

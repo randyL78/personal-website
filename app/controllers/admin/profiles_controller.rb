@@ -28,7 +28,7 @@ module Admin
     end
 
     def destroy
-      Profile.find(params[:id]).destroy!
+      @profile.destroy!
       redirect_to admin_profiles_path
     end
 

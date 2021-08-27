@@ -17,12 +17,14 @@
 class Profile < ApplicationRecord
   belongs_to :user
 
+  has_one :experience_group, dependent: :destroy
+
   validates :user_id, presence: true
   validates :name, presence: true
   validates :age, numericality: { only_integer: true }
 
-  scope :published, -> { where(:is_published => true)}
-  # Ex:- scope :active, -> {where(:active => true)}
+  scope :published, -> { where(is_published: true) }
+  scope :for_user, ->(user_id) { where(user_id: user_id) }
 
   alias_attribute :published?, :is_published
 end
