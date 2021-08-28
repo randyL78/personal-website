@@ -1,0 +1,65 @@
+<%= form_with model: @education, url: @education.persisted? ? admin_education_path(@education) : admin_educations_path do |f| %>
+  <div class="mb-3">
+    <%= f.label :education_group_id, "Education Group Id", class: "form-label" %>
+    <%= f.text_field :education_group_id, class: "form-control", readonly: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :school, "School", class: "form-label" %>
+    <%= f.text_field :school, class: "form-control", readonly: is_readonly %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :level, "Level", class: "form-label" %>
+    <% if is_readonly %>
+      <%= f.text_field :level, class: "form-control", readonly: is_readonly %>
+    <% else %>
+      <%= f.collection_select :level, Education::LEVELS, :to_s, :to_s, { include_blank: "Select One"}, { class: "form-select" } %>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :major, "Major", class: "form-label" %>
+    <%= f.text_field :major, class: "form-control", readonly: is_readonly %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :minor, "Minor", class: "form-label" %>
+    <%= f.text_field :minor, class: "form-control", readonly: is_readonly %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :gpa, "GPA", class: "form-label" %>
+    <%= f.text_field :gpa, class: "form-control", type: "number", step: "0.01", min: 0, max: 4.5, readonly: is_readonly %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :start_date, "Start Date", class: "form-label" %>
+    <%= f.text_field :start_date, class: "form-control", type: "date", readonly: is_readonly %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :end_date, "End Date", class: "form-label" %>
+    <%= f.text_field :end_date, class: "form-control", type: "date", readonly: is_readonly %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :location, "Location", class: "form-label" %>
+    <%= f.text_field :location, class: "form-control", readonly: is_readonly %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :description, "Description", class: "form-label" %>
+    <%= f.text_area :description, class: "form-control", readonly: is_readonly %>
+  </div>
+
+  <div class="justify-content-between d-flex">
+    <% if is_readonly %>
+      <%= link_to "Edit", edit_admin_education_path(@education), class: "btn btn-primary" %>
+      <%= link_to "Back", admin_education_group_path(@education.education_group_id), class: "btn btn-secondary" %>
+    <% else %>
+      <%= f.submit "Save", class: "btn btn-primary" %>
+      <%= link_to "Cancel", @education.persisted? ? admin_education_path(@education) : admin_education_group_path(@education.education_group_id), class: "btn btn-secondary" %>
+    <% end %>
+  </div>
+<% end %>

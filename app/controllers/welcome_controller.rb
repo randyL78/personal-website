@@ -1,5 +1,4 @@
 class WelcomeController < ApplicationController
-
   def index
     user = get_user
     profile = get_profile(user)
@@ -8,32 +7,7 @@ class WelcomeController < ApplicationController
       tag_line: user.title,
       profile: profile,
       experience: profile.experience_group,
-      education: [
-        # OpenStruct.new(
-        #   start_date: 'Sep 2018',
-        #   end_date: 'Sep 2021',
-        #   school: 'Old Dominion University',
-        #   description: "In a combined Bachelor’s/Master’s Degree program where
-        #                 I am able to work on both degrees at once.",
-        #   gpa: 3.93
-        # ),
-        # OpenStruct.new(
-        #   start_date: 'Sep 2018',
-        #   end_date: 'Sep 2021',
-        #   school: 'Old Dominion University',
-        #   description: "In a combined Bachelor’s/Master’s Degree program where
-        #                 I am able to work on both degrees at once.",
-        #   gpa: 3.93
-        # ),
-        # OpenStruct.new(
-        #   start_date: 'Sep 2018',
-        #   end_date: 'Sep 2021',
-        #   school: 'Old Dominion University',
-        #   description: "In a combined Bachelor’s/Master’s Degree program where
-        #                 I am able to work on both degrees at once.",
-        #   gpa: 3.93
-        # )
-      ],
+      education: profile.education_group,
       # languages: [
       #   OpenStruct.new(
       #     name: "Ruby on Rails",
