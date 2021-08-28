@@ -18,7 +18,7 @@ module Admin
     end
 
     def update
-      (redirect_to admin_profile_path(@profile) and return) if @profile = Profile.update(profile_params)
+      (redirect_to admin_profile_path(@profile) and return) if @profile.update(profile_params)
 
       render :edit
     end
@@ -28,7 +28,7 @@ module Admin
     end
 
     def destroy
-      Profile.find(params[:id]).destroy!
+      @profile.destroy!
       redirect_to admin_profiles_path
     end
 

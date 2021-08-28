@@ -50,20 +50,21 @@
   </div>
 
   <%# Experience Section %>
+  <% if @landing_info.experience.present? %>
   <div class="p-5 mt-5 nm-cc-theme-neutral nm-box-theme-primary">
     <div class="container position-relative" id="experience">
       <div class="text-center">
         <h2 class="text-theme-primary fs-0 fw-light">Experience</h2>
-        <q class="text-black-50">
-          A favorite quote
-        </q>
-        <hr class="mt-5">
+        <q class="text-black-75 fst-italic fs-5"><%= @landing_info.experience.quote %></q>
+        <p class="text-black-75" >~<%= @landing_info.experience.quote_author %></p>
+        <hr class="my-5">
       </div>
       <div>
-        <%= render partial: 'experience', collection: @landing_info.experience %>
+        <%= render partial: 'experience', collection: @landing_info.experience.experiences %>
       </div>
     </div>
   </div>
+  <% end %>
 
   <%# Education Section %>
   <div class="p-5 mt-5 nm-cc-theme-light nm-box-theme-primary">
@@ -117,6 +118,9 @@
           A favorite quote
         </q>
         <hr class="mt-5">
+        <div>
+          <p class="fs-1">Coming Soon!</p>
+        </div>
       </div>
     </div>
   </div>

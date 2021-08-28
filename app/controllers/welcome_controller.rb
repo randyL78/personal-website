@@ -7,130 +7,99 @@ class WelcomeController < ApplicationController
       name: user.name,
       tag_line: user.title,
       profile: profile,
-      experience: [
-        OpenStruct.new(
-          start_date: 'Sep 2018',
-          end_date: 'Sep 2021',
-          company: 'Treehouse',
-          title: 'Web Developer III',
-          location: 'Remote',
-          description: "Worked as a Ruby on Rails developer for the main
-                        application as well as filled in as a Data Engineer when
-                        the team did not have one."
-        ),
-        OpenStruct.new(
-          start_date: 'Sep 2018',
-          end_date: 'Sep 2021',
-          company: 'Treehouse',
-          title: 'Web Developer III',
-          location: 'Remote',
-          description: "Worked as a Ruby on Rails developer for the main
-                        application as well as filled in as a Data Engineer when
-                        the team did not have one."
-        ),
-        OpenStruct.new(
-          start_date: 'Sep 2018',
-          end_date: 'Sep 2021',
-          company: 'Treehouse',
-          title: 'Web Developer III',
-          location: 'Remote',
-          description: "Worked as a Ruby on Rails developer for the main
-                        application as well as filled in as a Data Engineer when
-                        the team did not have one."
-        )
-      ],
+      experience: profile.experience_group,
       education: [
-        OpenStruct.new(
-          start_date: 'Sep 2018',
-          end_date: 'Sep 2021',
-          school: 'Old Dominion University',
-          description: "In a combined Bachelor’s/Master’s Degree program where
-                        I am able to work on both degrees at once.",
-          gpa: 3.93
-        ),
-        OpenStruct.new(
-          start_date: 'Sep 2018',
-          end_date: 'Sep 2021',
-          school: 'Old Dominion University',
-          description: "In a combined Bachelor’s/Master’s Degree program where
-                        I am able to work on both degrees at once.",
-          gpa: 3.93
-        ),
-        OpenStruct.new(
-          start_date: 'Sep 2018',
-          end_date: 'Sep 2021',
-          school: 'Old Dominion University',
-          description: "In a combined Bachelor’s/Master’s Degree program where
-                        I am able to work on both degrees at once.",
-          gpa: 3.93
-        )
+        # OpenStruct.new(
+        #   start_date: 'Sep 2018',
+        #   end_date: 'Sep 2021',
+        #   school: 'Old Dominion University',
+        #   description: "In a combined Bachelor’s/Master’s Degree program where
+        #                 I am able to work on both degrees at once.",
+        #   gpa: 3.93
+        # ),
+        # OpenStruct.new(
+        #   start_date: 'Sep 2018',
+        #   end_date: 'Sep 2021',
+        #   school: 'Old Dominion University',
+        #   description: "In a combined Bachelor’s/Master’s Degree program where
+        #                 I am able to work on both degrees at once.",
+        #   gpa: 3.93
+        # ),
+        # OpenStruct.new(
+        #   start_date: 'Sep 2018',
+        #   end_date: 'Sep 2021',
+        #   school: 'Old Dominion University',
+        #   description: "In a combined Bachelor’s/Master’s Degree program where
+        #                 I am able to work on both degrees at once.",
+        #   gpa: 3.93
+        # )
       ],
-      languages: [
-        OpenStruct.new(
-          name: "Ruby on Rails",
-          rating: 4
-        ),
-        OpenStruct.new(
-          name: "Ruby on Rails",
-          rating: 4
-        ),
-        OpenStruct.new(
-          name: "Ruby on Rails",
-          rating: 4
-        ),
-        OpenStruct.new(
-          name: "Ruby on Rails",
-          rating: 4
-        ),
-        OpenStruct.new(
-          name: "Ruby on Rails",
-          rating: 4
-        )
-      ],
-      development_tools: [
-        OpenStruct.new(
-          name: "Github",
-          rating: 4
-        ),
-        OpenStruct.new(
-          name: "Github",
-          rating: 4
-        ),
-        OpenStruct.new(
-          name: "Github",
-          rating: 4
-        ),
-        OpenStruct.new(
-          name: "Github",
-          rating: 4
-        ),
-        OpenStruct.new(
-          name: "Github",
-          rating: 4
-        )
-      ],
-      productivity: [
-        OpenStruct.new(
-          name: "Jira",
-          rating: 4
-        ),
-        OpenStruct.new(
-          name: "Jira",
-          rating: 4
-        ),
-        OpenStruct.new(
-          name: "Jira",
-          rating: 4
-        ),
-        OpenStruct.new(
-          name: "Jira",
-          rating: 4
-        ),
-        OpenStruct.new(
-          name: "Jira",
-          rating: 4
-        )
-      ]
+      # languages: [
+      #   OpenStruct.new(
+      #     name: "Ruby on Rails",
+      #     rating: 4
+      #   ),
+      #   OpenStruct.new(
+      #     name: "Ruby on Rails",
+      #     rating: 4
+      #   ),
+      #   OpenStruct.new(
+      #     name: "Ruby on Rails",
+      #     rating: 4
+      #   ),
+      #   OpenStruct.new(
+      #     name: "Ruby on Rails",
+      #     rating: 4
+      #   ),
+      #   OpenStruct.new(
+      #     name: "Ruby on Rails",
+      #     rating: 4
+      #   )
+      # ],
+      # development_tools: [
+      #   OpenStruct.new(
+      #     name: "Github",
+      #     rating: 4
+      #   ),
+      #   OpenStruct.new(
+      #     name: "Github",
+      #     rating: 4
+      #   ),
+      #   OpenStruct.new(
+      #     name: "Github",
+      #     rating: 4
+      #   ),
+      #   OpenStruct.new(
+      #     name: "Github",
+      #     rating: 4
+      #   ),
+      #   OpenStruct.new(
+      #     name: "Github",
+      #     rating: 4
+      #   )
+      # ],
+      # productivity: [
+      #   OpenStruct.new(
+      #     name: "Jira",
+      #     rating: 4
+      #   ),
+      #   OpenStruct.new(
+      #     name: "Jira",
+      #     rating: 4
+      #   ),
+      #   OpenStruct.new(
+      #     name: "Jira",
+      #     rating: 4
+      #   ),
+      #   OpenStruct.new(
+      #     name: "Jira",
+      #     rating: 4
+      #   ),
+      #   OpenStruct.new(
+      #     name: "Jira",
+      #     rating: 4
+      #   )
+      # ]
     )
   end
 

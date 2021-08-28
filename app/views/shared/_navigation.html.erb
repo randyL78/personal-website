@@ -1,3 +1,22 @@
+<% # Mobile %>
+<% # Main Navigation %>
+<nav class="navbar navbar-dark bg-dark d-md-none" id="mobilNav">
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <a class="text-white nav-link" href="#top" data-turbolinks="false">Top</a>
+    <a class="text-white nav-link" href="#profile" data-turbolinks="false">Profile</a>
+    <a class="text-white nav-link" href="#experience" data-turbolinks="false">Experience</a>
+    <a class="text-white nav-link" href="#education" data-turbolinks="false">Education</a>
+    <a class="text-white nav-link" href="#skills" data-turbolinks="false">Skills</a>
+    <a class="text-white nav-link" href="#projects" data-turbolinks="false">Projects</a>
+  </div>
+</nav>
+
+
+<% # Desktop %>
+<% # Main Navigation %>
 <div class="p-2 rounded nav-container d-none d-md-block nm-cc-theme-primary nm-box-s-theme-primary" >
   <nav class="text-white flex-column nav nav-pills" id="navigation">
     <a class="text-white nav-link" href="#top" data-turbolinks="false">Top</a>
@@ -9,6 +28,7 @@
   </nav>
 </div>
 
+<% # Admin button %>
 <div class="p-2 rounded admin-container d-none d-md-block nm-cc-theme-primary nm-box-s-theme-primary">
   <%= link_to 'Admin', admin_root_path, class: "text-white nav-link" %>
 </div>
