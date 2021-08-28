@@ -15,6 +15,7 @@ class User < ApplicationRecord
 
   has_many :profiles, dependent: :destroy
   has_many :experience_groups, through: :profiles
+  has_many :education_groups, through: :profiles
 
   def current_profile
     profiles.published.first

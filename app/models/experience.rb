@@ -14,6 +14,7 @@
 #  updated_at          :datetime         not null
 #
 class Experience < ApplicationRecord
+  include Achievable
+
   belongs_to :experience_group
-  has_many :achievements, dependent: :destroy
 end

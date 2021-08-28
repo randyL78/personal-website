@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_27_230757) do
+ActiveRecord::Schema.define(version: 2021_08_28_222110) do
 
   create_table "achievements", charset: "utf8mb4", force: :cascade do |t|
     t.string "description"
-    t.bigint "experience_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["experience_id"], name: "index_achievements_on_experience_id"
+    t.string "achievable_type"
+    t.bigint "achievable_id"
+    t.index ["achievable_type", "achievable_id"], name: "index_achievements_on_achievable"
   end
 
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
@@ -48,8 +49,17 @@ ActiveRecord::Schema.define(version: 2021_08_27_230757) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "education_groups", charset: "utf8mb4", force: :cascade do |t|
+    t.string "quote"
+    t.string "quote_author"
+    t.bigint "profile_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["profile_id"], name: "index_education_groups_on_profile_id"
+  end
+
   create_table "educations", charset: "utf8mb4", force: :cascade do |t|
-    t.string "name"
+    t.string "school"
     t.string "major"
     t.string "minor"
     t.decimal "gpa", precision: 3, scale: 2
@@ -58,6 +68,10 @@ ActiveRecord::Schema.define(version: 2021_08_27_230757) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "education_group_id", null: false
+    t.string "location"
+    t.string "level"
+    t.index ["education_group_id"], name: "index_educations_on_education_group_id"
   end
 
   create_table "experience_groups", charset: "utf8mb4", force: :cascade do |t|
@@ -105,8 +119,8 @@ ActiveRecord::Schema.define(version: 2021_08_27_230757) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "achievements", "experiences"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "education_groups", "profiles"
   add_foreign_key "experience_groups", "profiles"
 end

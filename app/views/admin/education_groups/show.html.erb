@@ -1,0 +1,38 @@
+<div class="container p-4 mt-5 rounded form bg-theme-neutral">
+  <h1 class="mb-4 text-center">Education Group for Profile Number: <%= @education_group.profile_id %></h1>
+  <%= render partial: 'form', locals: { is_readonly: true } %>
+  <h2 class="mt-4">Educations:</h2>
+  <% if @education_group.educations.present? %>
+    <table class="table border-primary table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Start Date</th>
+          <th scope="col">End Date</th>
+          <th scope="col">School</th>
+          <th scope="col">Level</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+        <tbody>
+          <tr>
+          <% @education_group.educations.order('end_date DESC').each do |education| %>
+            <td scope="col"><%= education.start_date %></td>
+            <td scope="col"><%= education.end_date %></td>
+            <td scope="col"><%= education.school %></td>
+            <td scope="col"><%= education.level %></td>
+            <td scope="col">
+              <%= link_to 'View', admin_education_path(education), class: "btn btn-primary" %>
+              <%= link_to 'Delete',
+                admin_education_path(education),
+                class: "btn btn-danger",
+                method: :delete,
+                data: { confirm: "This will permanately remove the education group. Are you sure?" }
+              %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+    </table>
+  <% end %>
+  <%= link_to "New education", new_admin_education_path(education_group_id: @education_group.id), class: "btn btn-primary" %>
+</div>

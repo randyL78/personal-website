@@ -2,11 +2,12 @@
 #
 # Table name: achievements
 #
-#  id            :bigint           not null, primary key
-#  description   :string(255)
-#  experience_id :bigint           not null
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
+#  id              :bigint           not null, primary key
+#  description     :string(255)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  achievable_type :string(255)
+#  achievable_id   :bigint
 #
 require 'rails_helper'
 

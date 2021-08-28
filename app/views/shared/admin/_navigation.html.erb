@@ -17,9 +17,13 @@
               <%= link_to 'Experience',
                   admin_experience_groups_path,
                   class: "nav-link #{controller_name.include?("experience") ? "active" : nil}"
-              %>            </li>
+              %>
+            </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Education</a>
+              <%= link_to 'Education',
+                  admin_education_groups_path,
+                  class: "nav-link #{controller_name.include?("education") ? "active" : nil}"
+              %>
             </li>
             <li class="nav-item">
               <%= link_to 'Account', admin_user_path(@current_user), class: "nav-link #{controller_name == "users" ? "active" : nil}" %>

@@ -1,0 +1,37 @@
+<div class="container p-4 mt-5 rounded form bg-theme-neutral">
+  <h1 class="mb-4 text-center">Education Groups</h1>
+  <% if @education_groups.present? %>
+    <table class="table border-primary table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Profile ID</th>
+          <th scope="col">Quote</th>
+          <th scope="col"># of Edu.</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @education_groups.each do |education_group| %>
+          <td scope="col"><%= education_group.id %></td>
+          <td scope="col"><%= education_group.profile_id %></td>
+          <td scope="col"><%= truncate_text(education_group.quote, 30) %></td>
+          <td scope="col"><%= 0 %></td>
+          <td scope="col">
+            <%= link_to 'View', admin_education_group_path(education_group), class: "btn btn-primary" %>
+            <%= link_to 'Delete',
+              admin_education_group_path(education_group),
+              class: "btn btn-danger",
+              method: :delete,
+              data: { confirm: "This will permanately remove the education group. Are you sure?" }
+            %>
+          </td>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>There are currently no education groups for this user</p>
+  <% end %>
+  <%= link_to "New", new_admin_education_group_path, class: "btn btn-primary" %>
+
+</div>

@@ -18,7 +18,10 @@ class Profile < ApplicationRecord
   belongs_to :user
 
   has_one :experience_group, dependent: :destroy
+  has_one :education_group, dependent: :destroy
+
   has_many :experiences, through: :experience_group
+  has_many :educations, through: :education_group
 
   validates :user_id, presence: true
   validates :name, presence: true
