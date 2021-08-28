@@ -50,6 +50,7 @@
   </div>
 
   <%# Experience Section %>
+  <% if @landing_info.experience.present? %>
   <div class="p-5 mt-5 nm-cc-theme-neutral nm-box-theme-primary">
     <div class="container position-relative" id="experience">
       <div class="text-center">
@@ -63,6 +64,7 @@
       </div>
     </div>
   </div>
+  <% end %>
 
   <%# Education Section %>
   <div class="p-5 mt-5 nm-cc-theme-light nm-box-theme-primary">

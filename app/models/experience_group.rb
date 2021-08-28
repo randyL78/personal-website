@@ -11,6 +11,7 @@
 #
 class ExperienceGroup < ApplicationRecord
   belongs_to :profile
+  has_many :experiences, dependent: :destroy
 
   validates :profile_id, presence: true, uniqueness: true
 

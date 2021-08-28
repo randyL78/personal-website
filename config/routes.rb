@@ -13,5 +13,6 @@ Rails.application.routes.draw do
     resources :users, only: [:new, :create, :edit, :update, :show, :destroy]
     resources :profiles
     resources :experience_groups
+    resources :experiences, only: [:new, :create, :edit, :update, :show, :destroy]
   end
 end

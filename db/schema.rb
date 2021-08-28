@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_27_180624) do
+ActiveRecord::Schema.define(version: 2021_08_27_230757) do
+
+  create_table "achievements", charset: "utf8mb4", force: :cascade do |t|
+    t.string "description"
+    t.bigint "experience_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["experience_id"], name: "index_achievements_on_experience_id"
+  end
 
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -61,6 +69,19 @@ ActiveRecord::Schema.define(version: 2021_08_27_180624) do
     t.index ["profile_id"], name: "index_experience_groups_on_profile_id"
   end
 
+  create_table "experiences", charset: "utf8mb4", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.string "company"
+    t.string "title"
+    t.string "location"
+    t.text "description"
+    t.bigint "experience_group_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["experience_group_id"], name: "index_experiences_on_experience_group_id"
+  end
+
   create_table "profiles", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.string "location"
@@ -84,6 +105,7 @@ ActiveRecord::Schema.define(version: 2021_08_27_180624) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "achievements", "experiences"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "experience_groups", "profiles"

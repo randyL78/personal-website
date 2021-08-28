@@ -29,7 +29,7 @@ module Admin
     def show; end
 
     def update
-      if @experience_group = ExperienceGroup.update(experience_group_params)
+      if @experience_group.update(experience_group_params)
         redirect_to admin_experience_group_path(@experience_group) and return
       end
 

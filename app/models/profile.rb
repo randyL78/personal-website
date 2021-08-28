@@ -18,6 +18,7 @@ class Profile < ApplicationRecord
   belongs_to :user
 
   has_one :experience_group, dependent: :destroy
+  has_many :experiences, through: :experience_group
 
   validates :user_id, presence: true
   validates :name, presence: true
